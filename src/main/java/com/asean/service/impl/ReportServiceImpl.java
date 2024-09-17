@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -34,7 +35,7 @@ public class ReportServiceImpl implements ReportService {
                 .condition(ReportConditionEnum.valueOf(e.getCondition()) == ReportConditionEnum.NEW ?
                         NEW : OLD)
                 .deliveryDate(e.getDeliveryDate())
-                .build()).toList();
+                .build()).collect(Collectors.toList());
     }
 
     @Override
