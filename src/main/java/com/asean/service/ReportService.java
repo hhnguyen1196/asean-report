@@ -1,5 +1,6 @@
 package com.asean.service;
 
+import com.asean.request.InsertListReportRequest;
 import com.asean.request.InsertOrUpdateReportRequest;
 import com.asean.response.GetAllReportResponse;
 
@@ -12,4 +13,6 @@ public interface ReportService {
     void insertOrUpdateReport(InsertOrUpdateReportRequest request);
 
     void deleteReport(Long id);
+
+    void insertList(List<InsertListReportRequest> requests);
 }

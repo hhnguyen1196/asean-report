@@ -7,10 +7,14 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-    show-sql: true
+    properties:
+      hibernate:
+        jdbc:
+          order_inserts: true
+          batch_size: 10
 
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/asean?currentSchema=asean-report
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=asean-report
     username: postgres
     password: 12345678

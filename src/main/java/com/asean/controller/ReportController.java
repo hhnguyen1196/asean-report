@@ -1,5 +1,6 @@
 package com.asean.controller;
 
+import com.asean.request.InsertListReportRequest;
 import com.asean.request.InsertOrUpdateReportRequest;
 import com.asean.response.GetAllReportResponse;
 import com.asean.service.ReportService;
@@ -31,6 +32,12 @@ public class ReportController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteReport(@PathVariable("id") Long id) {
         reportService.deleteReport(id);
+    }
+
+    @PostMapping("/reports/list")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void insertListReport(@RequestBody List<InsertListReportRequest> request) {
+        reportService.insertList(request);
     }
 
 }
