@@ -25,8 +25,8 @@ public class ReportServiceImpl implements ReportService {
     private final String OLD = "Cũ";
 
     @Override
-    public List<GetAllReportResponse> getAll() {
-        return reportRepository.findAll().stream().map(e -> GetAllReportResponse
+    public List<GetAllReportResponse> getAll(Integer month) {
+        return reportRepository.findAllByMonth(month).stream().map(e -> GetAllReportResponse
                 .builder()
                 .id(e.getId())
                 .deliveryPartner(e.getDeliveryPartner())
@@ -34,8 +34,7 @@ public class ReportServiceImpl implements ReportService {
                 .equipment(e.getEquipment())
                 .quantity(e.getQuantity())
                 .deviceCode(e.getDeviceCode())
-                .condition(ReportConditionEnum.valueOf(e.getCondition()) == ReportConditionEnum.NEW ?
-                        NEW : OLD)
+                .condition(e.getCondition())
                 .deliveryDate(e.getDeliveryDate())
                 .build()).collect(Collectors.toList());
     }

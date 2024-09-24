@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ReportService {
 
-    List<GetAllReportResponse> getAll();
+    List<GetAllReportResponse> getAll(Integer month);
 
     void insertOrUpdateReport(InsertOrUpdateReportRequest request);
 

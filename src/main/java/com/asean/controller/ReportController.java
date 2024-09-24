@@ -18,8 +18,8 @@ public class ReportController {
     private ReportService reportService;
 
     @GetMapping("/reports")
-    public ResponseEntity<List<GetAllReportResponse>> getAllReport() {
-        return ResponseEntity.ok(reportService.getAll());
+    public ResponseEntity<List<GetAllReportResponse>> getAllReport(@RequestParam ("month") Integer month) {
+        return ResponseEntity.ok(reportService.getAll(month));
     }
 
     @PostMapping("/reports")
