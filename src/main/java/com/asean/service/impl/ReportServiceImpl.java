@@ -1,7 +1,6 @@
 package com.asean.service.impl;
 
 import com.asean.entity.Report;
-import com.asean.enums.ReportConditionEnum;
 import com.asean.repository.ReportRepository;
 import com.asean.request.InsertListReportRequest;
 import com.asean.request.InsertOrUpdateReportRequest;
@@ -19,10 +18,6 @@ import java.util.stream.Collectors;
 public class ReportServiceImpl implements ReportService {
 
     private ReportRepository reportRepository;
-
-    private final String NEW = "Mới";
-
-    private final String OLD = "Cũ";
 
     @Override
     public List<GetAllReportResponse> getAll(Integer month) {
