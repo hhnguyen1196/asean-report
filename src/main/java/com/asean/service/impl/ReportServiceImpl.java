@@ -20,8 +20,8 @@ public class ReportServiceImpl implements ReportService {
     private ReportRepository reportRepository;
 
     @Override
-    public List<GetAllReportResponse> getAll(Integer month) {
-        return reportRepository.findAllByMonth(month).stream().map(e -> GetAllReportResponse
+    public List<GetAllReportResponse> getAll(Integer month, Integer year) {
+        return reportRepository.findAllByMonthAndYear(month, year).stream().map(e -> GetAllReportResponse
                 .builder()
                 .id(e.getId())
                 .deliveryPartner(e.getDeliveryPartner())

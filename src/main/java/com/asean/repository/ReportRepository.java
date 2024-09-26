@@ -12,6 +12,8 @@ public interface ReportRepository extends JpaRepository<Report, Long> {
 
     @Query(value = "SELECT id, delivery_partner AS deliveryPartner, recipient, equipment, quantity, " +
             "device_code AS deviceCode, condition, delivery_date AS deliveryDate FROM report WHERE " +
-            "EXTRACT(MONTH FROM delivery_date) = :month ORDER BY delivery_date", nativeQuery = true)
-    List<ReportListQuery> findAllByMonth(@Param("month") Integer month);
+            "EXTRACT(MONTH FROM delivery_date) = :month AND EXTRACT(YEAR FROM delivery_date) = :year " +
+            "ORDER BY delivery_date", nativeQuery = true)
+    List<ReportListQuery> findAllByMonthAndYear(@Param("month") Integer month,
+                                                @Param("year") Integer year);
 }
