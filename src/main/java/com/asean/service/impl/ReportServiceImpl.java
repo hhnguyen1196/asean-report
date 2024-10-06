@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.ZoneId;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -64,7 +65,8 @@ public class ReportServiceImpl implements ReportService {
                         .quantity(request.getQuantity())
                         .deviceCode(request.getDeviceCode())
                         .condition(request.getCondition())
-                        .deliveryDate(request.getDeliveryDate())
+                        .deliveryDate(request.getDeliveryDate()
+                                .withZoneSameInstant(ZoneId.of("Asia/Ho_Chi_Minh")).toLocalDate())
                         .build())
                 .collect(Collectors.toList());
         reportRepository.saveAll(reports);

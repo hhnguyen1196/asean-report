@@ -3,7 +3,7 @@ package com.asean.request;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDate;
+import java.time.ZonedDateTime;
 
 @Getter
 @Setter
@@ -23,6 +23,6 @@ public class InsertListReportRequest {
 
     private String condition;
 
-    private LocalDate deliveryDate;
+    private ZonedDateTime deliveryDate;
 
 }
